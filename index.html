@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SPA Practical Work №5</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation Sections -->
+  <header class="site-header">
+    <nav class="main-nav" aria-label="Головна навігація">
+      <ul class="nav-list">
+        <li>
+          <a href="#catalog" class="nav-link is-active" data-section="catalog">Catalog</a>
+        </li>
+        <li>
+          <a href="#details" class="nav-link" data-section="details">About the Project</a>
+        </li>
+        <li>
+          <a href="#feedback" class="nav-link" data-section="feedback">Feedback</a>
+        </li>
+      </ul>
+    </nav>
+    
+    <!-- Session timer -->
+    <div class="state-monitor" aria-live="off">
+      <span>Session time:</span>
+      <strong id="session-timer">00:00</strong>
+    </div>
+  </header>
+
+  <!-- Content of 3 sections -->
+  <main class="app-content">
+    <section id="catalog" class="page-section">
+      <h1>Catalog of Products / Overview</h1>
+      <p>Welcome to the main page of the single-page application (SPA).</p>
+      <div class="cards-grid">
+        <article class="card">
+          <h2>Element 1</h2>
+          <p>Short description of the first catalog item.</p>
+        </article>
+        <article class="card">
+          <h2>Element 2</h2>
+          <p>Short description of the second catalog item.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="details" class="page-section is-hidden">
+      <h1>Specification / About the Project</h1>
+      <p>This application demonstrates client-side routing without page reloads.</p>
+      <ul>
+        <li>Clean HTML and CSS</li>
+        <li>Navigation based on Vanilla JS (ES6+)</li>
+        <li>State management for the user interface</li>
+      </ul>
+    </section>
+
+    <section id="feedback" class="page-section is-hidden">
+      <h1>Feedback Form</h1>
+      <form class="feedback-form">
+        <label for="username">Your Name:</label>
+        <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" rows="4" placeholder="Enter your message..." required></textarea>
+
+        <button type="submit">Submit</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
