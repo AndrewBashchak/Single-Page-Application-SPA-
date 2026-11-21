@@ -1,0 +1,137 @@
+/* Base styles for the page */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.6;
+  color: #222;
+  background-color: #f9f9fb;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Hiding inactive sections */
+.is-hidden {
+  display: none;
+}
+
+/* Navigation bar */
+.site-header {
+  background-color: #1e293b;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.state-monitor {
+  background-color: #0f172a;
+  color: #e2e8f0;
+  padding: 0.4rem 0.9rem;
+  border-radius: 6px;
+  border: 1px solid #334155;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+#session-timer {
+  color: #38bdf8;
+  font-variant-numeric: tabular-nums;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-link {
+  color: #cbd5e1;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.nav-link:hover {
+  color: #fff;
+  background-color: #334155;
+}
+
+/* Visual indication of the active menu item */
+.nav-link.is-active {
+  color: #fff;
+  background-color: #2563eb;
+}
+
+/* Main content */
+.app-content {
+  flex: 1;
+  max-width: 900px;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 0 1.5rem;
+}
+
+.page-section {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.page-section h1 {
+  margin-bottom: 1rem;
+  color: #0f172a;
+}
+
+/* Styling cards and form */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  max-width: 450px;
+  margin-top: 1rem;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 0.6rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 4px;
+  font: inherit;
+}
+
+.feedback-form button {
+  padding: 0.6rem 1.2rem;
+  background-color: #2563eb;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  align-self: flex-start;
+}
