@@ -1,77 +1,157 @@
 <!DOCTYPE html>
 <html lang="uk">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SPA Practical Work №5</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPA Practical Work №5</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-  <!-- Navigation Sections -->
-  <header class="site-header">
-    <nav class="main-nav" aria-label="Головна навігація">
-      <ul class="nav-list">
-        <li>
-          <a href="#catalog" class="nav-link is-active" data-section="catalog">Catalog</a>
-        </li>
-        <li>
-          <a href="#details" class="nav-link" data-section="details">About the Project</a>
-        </li>
-        <li>
-          <a href="#feedback" class="nav-link" data-section="feedback">Feedback</a>
-        </li>
-      </ul>
-    </nav>
-    
-    <!-- Session timer -->
-    <div class="state-monitor" aria-live="off">
-      <span>Session time:</span>
-      <strong id="session-timer">00:00</strong>
-    </div>
-  </header>
+    <!-- Navigation Sections -->
+    <header class="site-header">
+        <nav class="main-nav" aria-label="Головна навігація">
+            <ul class="nav-list">
+                <li>
+                    <a href="#catalog" class="nav-link is-active" data-section="catalog">Catalog</a>
+                </li>
+                <li>
+                    <a href="#details" class="nav-link" data-section="details">About the Project</a>
+                </li>
+                <li>
+                    <a href="#feedback" class="nav-link" data-section="feedback">Feedback</a>
+                </li>
+            </ul>
+        </nav>
 
-  <!-- Content of 3 sections -->
-  <main class="app-content">
-    <section id="catalog" class="page-section">
-      <h1>Catalog of Products / Overview</h1>
-      <p>Welcome to the main page of the single-page application (SPA).</p>
-      <div class="cards-grid">
-        <article class="card">
-          <h2>Element 1</h2>
-          <p>Short description of the first catalog item.</p>
-        </article>
-        <article class="card">
-          <h2>Element 2</h2>
-          <p>Short description of the second catalog item.</p>
-        </article>
-      </div>
-    </section>
+        <!-- Session timer -->
+        <div class="state-monitor" aria-live="off">
+            <span>Session time:</span>
+            <strong id="session-timer">00:00</strong>
+        </div>
+    </header>
 
-    <section id="details" class="page-section is-hidden">
-      <h1>Specification / About the Project</h1>
-      <p>This application demonstrates client-side routing without page reloads.</p>
-      <ul>
-        <li>Clean HTML and CSS</li>
-        <li>Navigation based on Vanilla JS (ES6+)</li>
-        <li>State management for the user interface</li>
-      </ul>
-    </section>
+    <!-- Content of 3 sections -->
+    <main class="app-content">
+        <section id="catalog" class="page-section">
+            <h1>Catalog of Products / Overview</h1>
+            <p>Welcome to the main page of the single-page application (SPA).</p>
 
-    <section id="feedback" class="page-section is-hidden">
-      <h1>Feedback Form</h1>
-      <form class="feedback-form">
-        <label for="username">Your Name:</label>
-        <input type="text" id="username" name="username" placeholder="Enter your name" required>
+            <div class="catalog-toolbar">
+                <label class="filter-field" for="catalog-filter">
+                    Filter catalog
+                    <input type="search" id="catalog-filter" name="catalog-filter"
+                        placeholder="Filter by name or description">
+                </label>
+                <div class="state-switcher" role="group" aria-label="Preview screen state">
+                    <button type="button" data-show-state="loading" aria-pressed="true">Loading</button>
+                    <button type="button" data-show-state="content" aria-pressed="false">Content</button>
+                    <button type="button" data-show-state="empty" aria-pressed="false">Empty</button>
+                    <button type="button" data-show-state="error" aria-pressed="false">Error</button>
+                </div>
+            </div>
 
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="4" placeholder="Enter your message..." required></textarea>
+            <div class="workspace" aria-live="polite">
+                <div class="screen-state" data-state="loading" role="status">
+                    <p class="visually-hidden">Loading catalog</p>
+                    <div class="skeleton-grid" aria-hidden="true">
+                        <article class="skeleton-card">
+                            <div class="skeleton-block skeleton-title"></div>
+                            <div class="skeleton-block skeleton-line"></div>
+                            <div class="skeleton-block skeleton-line skeleton-line-short"></div>
+                        </article>
+                        <article class="skeleton-card">
+                            <div class="skeleton-block skeleton-title"></div>
+                            <div class="skeleton-block skeleton-line"></div>
+                            <div class="skeleton-block skeleton-line skeleton-line-short"></div>
+                        </article>
+                        <article class="skeleton-card">
+                            <div class="skeleton-block skeleton-title"></div>
+                            <div class="skeleton-block skeleton-line"></div>
+                            <div class="skeleton-block skeleton-line skeleton-line-short"></div>
+                        </article>
+                        <article class="skeleton-card">
+                            <div class="skeleton-block skeleton-title"></div>
+                            <div class="skeleton-block skeleton-line"></div>
+                            <div class="skeleton-block skeleton-line skeleton-line-short"></div>
+                        </article>
+                    </div>
+                </div>
 
-        <button type="submit">Submit</button>
-      </form>
-    </section>
-  </main>
+                <div class="screen-state is-hidden" data-state="content">
+                    <div class="cards-grid">
+                        <article class="card">
+                            <h2>Field notebook</h2>
+                            <p>Hardcover log for sketches, measurements, and site notes.</p>
+                        </article>
+                        <article class="card">
+                            <h2>Desk lamp</h2>
+                            <p>Adjustable lamp with a warm dimmer for late work sessions.</p>
+                        </article>
+                        <article class="card">
+                            <h2>Ceramic mug</h2>
+                            <p>Stackable mug that keeps a drink warm through a review.</p>
+                        </article>
+                        <article class="card">
+                            <h2>Canvas tote</h2>
+                            <p>Lightweight bag for samples, printouts, and a spare charger.</p>
+                        </article>
+                    </div>
+                </div>
 
-  <script src="app.js"></script>
+                <div class="screen-state is-hidden" data-state="empty">
+                    <div class="status-panel">
+                        <svg class="status-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                            <rect x="6" y="14" width="36" height="24" rx="3" fill="none" stroke="currentColor"
+                                stroke-width="2"></rect>
+                            <path d="M6 18h36M18 14v-4h12v4" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linejoin="round"></path>
+                            <path d="M20 28h8" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round"></path>
+                        </svg>
+                        <h2>Nothing matches these filters</h2>
+                        <p>No catalog items fit the current filter. Reset the filters to see the full list again.</p>
+                        <button type="button" id="reset-filters">Reset filters</button>
+                    </div>
+                </div>
+
+                <div class="screen-state is-hidden" data-state="error" role="alert">
+                    <div class="status-panel">
+                        <p class="error-code">ERR-503</p>
+                        <h2>Could not load the catalog</h2>
+                        <p>The request failed with 503 Service Unavailable. The product list was not returned.</p>
+                        <button type="button" id="retry-load">Retry</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="details" class="page-section is-hidden">
+            <h1>Specification / About the Project</h1>
+            <p>This application demonstrates client-side routing without page reloads.</p>
+            <ul>
+                <li>Clean HTML and CSS</li>
+                <li>Navigation based on Vanilla JS (ES6+)</li>
+                <li>State management for the user interface</li>
+            </ul>
+        </section>
+
+        <section id="feedback" class="page-section is-hidden">
+            <h1>Feedback Form</h1>
+            <form class="feedback-form">
+                <label for="username">Your Name:</label>
+                <input type="text" id="username" name="username" placeholder="Enter your name" required>
+
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" placeholder="Enter your message..." required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
 </body>
 </html>
