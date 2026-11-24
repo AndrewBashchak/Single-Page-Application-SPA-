@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.setInterval(() => {
         secondsElapsed += 1;
         timerElement.textContent = formatTime(secondsElapsed);
-    }, 1500);
+    }, 1000);
 
     // Switching between sections without reloading the web page
     const navLinks = document.querySelectorAll('.nav-link');
